@@ -20,17 +20,17 @@ const parameters = {
   count: 944400,
   size: 0.005,
   radius: 7.77,
-  branches: 25,
+  branches: 3,
   spin: 1,
   randomness: 0.831,
   randomnessPower: 5.134,
-  insideColor: '#13ff0c',
-  outsideColor: '#1b3984',
+  insideColor: '#475dea',
+  outsideColor: '#5f173e',
 
   // collision & effects
   separation: 9.5,
   collisionSpeed: 0.009,
-  glowColor: '#ff3e30',
+  glowColor: '#f1e6e6',
 
   // randomness seed (for reproducibility)
   seed: 14382
@@ -175,7 +175,7 @@ function createGlow(colorHex) {
 const sizes = { width: window.innerWidth, height: window.innerHeight }
 
 const camera = new THREE.PerspectiveCamera(75, sizes.width / sizes.height, 0.1, 200)
-camera.position.set(4, 10, 0)
+camera.position.set(3, 4, 8)
 scene.add(camera)
 const controls = new OrbitControls(camera, canvas)
 controls.enableDamping = true
