@@ -17,3 +17,9 @@ body
     left: 0;
     outline: none;
 }
+
+#intro-popup.fade-out {
+  opacity: 0;
+  transition: opacity 0.5s ease;
+  pointer-events: none;
+}
