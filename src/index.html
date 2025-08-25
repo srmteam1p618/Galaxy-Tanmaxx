@@ -1,11 +1,57 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Animated galaxy</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Animated galaxy</title>
+  <style>
+    /* Popup styles */
+    #intro-popup {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100vw;
+      height: 100vh;
+      background: rgba(0, 0, 0, 0.85);
+      color: white;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 2rem;
+      text-align: center;
+      z-index: 10000;
+      -webkit-user-select: none; /* Safari */
+      user-select: none;
+      transition: opacity 0.5s ease;
+      opacity: 1;
+    }
+    #intro-popup.fade-out {
+      opacity: 0;
+      pointer-events: none;
+    }
+
+    /* Make canvas fill the screen */
+    body, html {
+      margin: 0;
+      height: 100%;
+      overflow: hidden;
+    }
+    canvas.webgl {
+      display: block;
+      width: 100vw;
+      height: 100vh;
+    }
+  </style>
 </head>
 <body>
-    <canvas class="webgl"></canvas>
+  <div id="intro-popup">
+    <div>
+      <p>Welcome! You can explore the galaxy by rotating the camera.</p>
+      <p>Use mouse or touch to control the view in 360°.</p>
+    </div>
+  </div>
+
+  <canvas class="webgl"></canvas>
+
+  <script src="script.js"></script>
 </body>
 </html>
