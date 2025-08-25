@@ -12,6 +12,9 @@ const gui = new dat.GUI()
 const canvas = document.querySelector('canvas.webgl')
 const scene = new THREE.Scene()
 
+// --- New: reference to the intro popup element ---
+const introPopup = document.getElementById('intro-popup')
+
 /**
  * ===== Parameters =====
  */
@@ -180,6 +183,9 @@ scene.add(camera)
 const controls = new OrbitControls(camera, canvas)
 controls.enableDamping = true
 
+// --- Disable controls initially until popup disappears ---
+controls.enabled = false
+
 renderer = new THREE.WebGLRenderer({ canvas })
 renderer.setSize(sizes.width, sizes.height)
 renderer.setPixelRatio(Math.min(window.devicePixelRatio, 12))
@@ -250,4 +256,14 @@ function tick() {
   requestAnimationFrame(tick)
 }
 
+// --- Start animation loop ---
 tick()
+
+// --- Hide popup and enable controls after 2 seconds ---
+setTimeout(() => {
+  introPopup.classList.add('fade-out')
+  setTimeout(() => {
+    introPopup.style.display = 'none'
+    controls.enabled = true
+  }, 500) // matches fade out CSS transition duration
+}, 2000)
